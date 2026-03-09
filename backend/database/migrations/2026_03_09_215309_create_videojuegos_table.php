@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('videojuegos', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->string('descripcion');
+            $table->text('descripcion')->nullable(); // Añade el ->nullable()
             $table->string('imagen'); //Aqui guardatemos la ruta: 'juegos/nombrefoto.jpg'
             $table->decimal('precio', 8, 2);
             
