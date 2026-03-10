@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import Layout from './layouts/Layout.tsx';
+import GameCard from './components/GameCard.tsx';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// 1. Definimos la forma de los datos
+interface Videojuego {
+  id: number;
+  titulo: string;
+  precio: number;
+  imagen: string;
 }
 
-export default App
+function App() {
+  // 2. Le asignamos el tipo al estado
+  const [juegos, setJuegos] = useState<Videojuego[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/api/videojuegos')
+      .then(res => res.json())
+      .then((data: Videojuego[]) => { // 3. También le decimos que lo que llega es ese tipo
+        setJuegos(data);
+      })
+      .catch(err => console.error("Error:", err));
+  }, []);
+
+  return (
+    <Layout>
+      <div className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto">
+      
+      {juegos.map(juego => (
+        /* IMPORTANTE: En Flexbox, necesitamos que cada "celda" tenga un ancho fijo 
+           para que parezca una rejilla. 'w-64' son 256px.
+        */
+        <div key={juego.id} className="w-full sm:w-64">
+          <GameCard 
+            titulo={juego.titulo}
+            precio={juego.precio}
+            // Recuerda el /storage/ que descubrimos en la carpeta de Laravel
+            imagen={juego.imagen} 
+          />
+        </div>
+      ))}
+
+    </div>
+    </Layout>
+  );
+}
+
+export default App;

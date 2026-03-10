@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class VideojuegoController extends Controller
 {
+    public function index() {
+        return Videojuego::all();
+    }
+    
     public function getSecciones() {
     $hoy = now();
 
