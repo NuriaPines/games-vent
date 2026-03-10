@@ -10,7 +10,7 @@ export default function GameCard({ titulo, precio, imagen }: GameCardProps) {
   return (
     <div className="bg-[#0f0524] rounded-lg overflow-hidden flex flex-col shadow-2xl transition-transform hover:scale-105">
       <img 
-        src={`http://localhost:8000/storage/${imagen}`} 
+        src={`http://localhost:8000/${imagen}`} 
         className="w-full aspect-[3/4] object-cover" 
         alt={titulo}
       />
