@@ -16,13 +16,11 @@ export default function GameCard({ titulo, precio, imagen }: GameCardProps) {
       />
       <div className="p-4 flex flex-col flex-grow">
         <h3 className="text-sm font-bold uppercase text-center mb-6 h-10 flex items-center justify-center">
-          {titulo}
+          <span className="transition-transform hover:scale-105 hover:underline cursor-pointer">{titulo}</span>
         </h3>
         <div className="mt-auto flex justify-between items-center px-2">
           <span className="text-lg font-bold">{precio}€</span>
-          <button className="bg-[#00cba9] hover:bg-[#00b395] text-[#0f0524] font-black py-2 px-4 rounded-full text-[10px] uppercase">
-            🛒 Comprar ahora
-          </button>
+          <button className="bg-[#00cba9] hover:bg-[#00b395] text-[#0f0524] font-black py-2 px-4 rounded-full text-[10px] uppercase">Comprar ahora</button>
         </div>
       </div>
     </div>
