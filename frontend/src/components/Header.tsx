@@ -15,8 +15,8 @@ function HeaderMenu({ to, children }: HeaderMenuProps) {
         className={
           ({ isActive }) =>
             isActive
-              ? "border-b-2 pb-1 text-white hover:[text-shadow:_0_0_15px_#7dd3fc]" // ESTADO ACTIVO
-              : "text-gray-400 hover:text-white hover:[text-shadow:_0_0_15px_#7dd3fc] transition cursor-pointer" // ESTADO INACTIVO
+              ? "border-b-2 pb-1 text-white hover:[text-shadow:_0_0_5px_#eab308]"// ESTADO ACTIVO
+              : "text-gray-400 hover:text-white hover:[text-shadow:_0_0_5px_#eab308] transition cursor-pointer" // ESTADO INACTIVO
         }
       >
         {children}

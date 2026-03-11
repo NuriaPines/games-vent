@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout.tsx";
 import GameCard from "./components/GameCard.tsx";
-import GameDetail from "./layouts/GameDetail.tsx";
+import GamesDetails from "./layouts/GamesDetails.tsx";
 
 // 1. Definimos la forma de los datos
 interface Videojuego {
@@ -10,6 +10,7 @@ interface Videojuego {
   titulo: string;
   precio: number;
   imagen: string;
+  descripcion: string;
 }
 
 interface Novedades {
@@ -76,6 +77,8 @@ function App() {
       })
       .catch((err) => console.error("Error:", err));
   }, []);
+
+  
 
   // GUARDAMOS LOS JUEGOS POR SECCIONES EN CONSTANTES PARA USARLOS EN LAS RUTAS
   const novedadesVideogames = (
@@ -145,7 +148,7 @@ function App() {
           <Route path="/novedades" element={<Layout>{novedadesVideogames}</Layout>} />
           <Route path="/promociones" element={<Layout>{promocionesVideogames}</Layout>} />
           <Route path="/proximamente" element={<Layout>{proximamenteVideogames}</Layout>} />
-          <Route path="/juego/:id" element={<GameDetail />} />
+          <Route path="/juego/:id" element={<GamesDetails/>}/>
         </Routes>
     </BrowserRouter>
   );

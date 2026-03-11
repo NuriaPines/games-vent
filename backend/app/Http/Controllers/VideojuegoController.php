@@ -33,12 +33,16 @@ class VideojuegoController extends Controller
     }
 
     public function getGameDetail($id) {
+        // Buscamos el juego por su ID
         $juego = Videojuego::find($id);
-        if ($juego) {
-            return response()->json($juego);
-        } else {
-            return response()->json(['error' => 'Juego no encontrado'], 404);
+
+        // Si no existe, devolvemos un error 404 en JSON
+        if (!$juego) {
+            return response()->json(['message' => 'Juego no encontrado'], 404);
         }
+
+        // Si existe, lo devolvemos
+        return response()->json($juego);
     }
 
 }

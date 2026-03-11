@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/header.tsx';
+import Header from '../components/Header.tsx';
 
 // React.ReactNode es la forma de decirle a TS: "Aquí puede venir cualquier cosa de HTML/React"
 interface LayoutProps {

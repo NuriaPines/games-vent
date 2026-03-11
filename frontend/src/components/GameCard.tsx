@@ -21,13 +21,13 @@ export default function GameCard({ id, titulo, precio, imagen }: GameCardProps) 
       
       <div className="p-4 flex flex-col flex-grow">
         <h3 className="text-sm font-bold uppercase text-center mb-6 h-10 flex items-center justify-center">
-          <Link to={`/juego/${id}`} className="transition-transform hover:scale-105 hover:underline hover:[text-shadow:_0_0_15px_#7dd3fc] cursor-pointer">
+          <Link to={`/juego/${id}`} className="transition-transform hover:scale-105 hover:underline hover:[text-shadow:_0_0_5px_#eab308] cursor-pointer">
             {titulo}
           </Link>
         </h3>
         <div className="mt-auto flex justify-between items-center px-2">
           <span className="text-lg font-bold">{precio}€</span>
-          <Link to={`/juego/${id}`} className="bg-[#00cba9] transition hover:bg-[#00b395] text-white font-black py-2 px-4 rounded-full text-xs uppercase">Comprar ahora</Link>
+          <Link to={`/juego/${id}`} className="bg-yellow-500 ms-auto text-[#1a0b3b] px-2 py-1 rounded font-bold hover:bg-yellow-400 transition">Comprar ahora</Link>
         </div>
       </div>
     </div>
