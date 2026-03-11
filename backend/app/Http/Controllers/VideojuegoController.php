@@ -13,20 +13,24 @@ class VideojuegoController extends Controller
     }
     
     public function getSecciones() {
-    $hoy = now();
-
     return response()->json([
-        'novedades' => Videojuego::where('fecha_lanzamiento', '<=', $hoy)
-                        ->orderBy('fecha_lanzamiento', 'desc')
-                        ->take(5)->get(),
+            'novedades' => Videojuego::where('seccion', 'novedades')->get(),
+            'proximamente' => Videojuego::where('seccion', 'proximamente')->get(),
+            'promociones' => Videojuego::where('seccion', 'promociones')->get(),
+            'catalogo' => Videojuego::all(), // Todo el listado
+        ]);
+    }
 
-        'proximamente' => Videojuego::where('fecha_lanzamiento', '>', $hoy)
-                        ->get(),
+    public function getNovedades() {
+        return response()->json(Videojuego::where('seccion', 'novedades')->get());
+    }
 
-        'promociones' => Videojuego::whereNotNull('precio_oferta')
-                        ->get(),
+    public function getProximamente() {
+        return response()->json(Videojuego::where('seccion', 'proximamente')->get());
+    }
 
-        'catalogo' => Videojuego::all(), // Todo el listado
-    ]);
-}
+    public function getPromociones() {
+        return response()->json(Videojuego::where('seccion', 'promociones')->get());
+    }
+
 }

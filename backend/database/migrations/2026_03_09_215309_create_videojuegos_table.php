@@ -19,8 +19,7 @@ return new class extends Migration
             $table->decimal('precio', 8, 2);
             
             // --- AQUÍ ESTÁ EL TRUCO PARA LAS SECCIONES ---
-            $table->decimal('precio_oferta', 8, 2)->nullable(); // Si tiene valor, es una "Promoción"
-            $table->date('fecha_lanzamiento'); // Para saber si es "Novedad" o "Próximamente"
+            $table->enum('seccion', ['catalogo', 'promociones', 'novedades', 'proximamente']);
             $table->boolean('es_destacado')->default(false); // Por si quieres ponerlo en portada
                 
             $table->timestamps();
