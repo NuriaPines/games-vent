@@ -15,8 +15,8 @@ function HeaderMenu({ to, children }: HeaderMenuProps) {
         className={
           ({ isActive }) =>
             isActive
-              ? "border-b-2 border-white pb-1 text-white block" // ESTADO ACTIVO
-              : "text-gray-400 hover:text-white transition cursor-pointer block" // ESTADO INACTIVO
+              ? "border-b-2 pb-1 text-white hover:[text-shadow:_0_0_15px_#7dd3fc]" // ESTADO ACTIVO
+              : "text-gray-400 hover:text-white hover:[text-shadow:_0_0_15px_#7dd3fc] transition cursor-pointer" // ESTADO INACTIVO
         }
       >
         {children}
@@ -33,7 +33,7 @@ export default function Header() {
         <span className="text-yellow-500 text-2xl">🔑</span>
       </h1>
       <nav className="mt-8">
-        <ul className="flex justify-center gap-10 text-xs font-bold uppercase tracking-widest">
+        <ul className="flex flex-col sm:flex-row sm:justify-center gap-10 text-xs font-bold uppercase tracking-widest">
           {/* 3. Usamos nuestro nuevo mini-componente. ¡Mira qué limpio y fácil de leer! */}
           <HeaderMenu to="/">Catálogo</HeaderMenu>
           <HeaderMenu to="/promociones">Promociones</HeaderMenu>

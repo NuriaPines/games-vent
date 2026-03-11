@@ -10,3 +10,5 @@ Route::get("/secciones", [VideoJuegoController::class, 'getSecciones']);
 Route::get('/novedades', [VideoJuegoController::class, 'getNovedades']);
 Route::get('/proximamente', [VideoJuegoController::class, 'getProximamente']);
 Route::get('/promociones', [VideoJuegoController::class, 'getPromociones']);
+
+Route::get('/juego/{id}', [VideoJuegoController::class, 'getGameDetail']);

@@ -1,26 +1,33 @@
+import { Link } from "react-router-dom";
 // 1. Definimos qué "props" (datos) acepta este componente
 interface GameCardProps {
+  id: number;
   titulo: string;
   precio: number;
   imagen: string;
 }
 
 // 2. Le decimos a la función que use esa interfaz
-export default function GameCard({ titulo, precio, imagen }: GameCardProps) {
+export default function GameCard({ id, titulo, precio, imagen }: GameCardProps) {
   return (
     <div className="bg-[#0f0524] rounded-lg overflow-hidden flex flex-col shadow-2xl transition-transform hover:scale-105">
-      <img 
-        src={`http://127.0.0.1:8000/${imagen}`} 
-        className="w-full aspect-[3/4] object-cover" 
-        alt={titulo}
-      />
+      <Link to={`/juego/${id}`}>
+        <img 
+          src={`http://127.0.0.1:8000/${imagen}`} 
+          className="w-full aspect-[3/4] object-cover" 
+          alt={titulo}
+        />
+      </Link>
+      
       <div className="p-4 flex flex-col flex-grow">
         <h3 className="text-sm font-bold uppercase text-center mb-6 h-10 flex items-center justify-center">
-          <span className="transition-transform hover:scale-105 hover:underline cursor-pointer">{titulo}</span>
+          <Link to={`/juego/${id}`} className="transition-transform hover:scale-105 hover:underline hover:[text-shadow:_0_0_15px_#7dd3fc] cursor-pointer">
+            {titulo}
+          </Link>
         </h3>
         <div className="mt-auto flex justify-between items-center px-2">
           <span className="text-lg font-bold">{precio}€</span>
-          <button className="bg-[#00cba9] hover:bg-[#00b395] text-[#0f0524] font-black py-2 px-4 rounded-full text-[10px] uppercase">Comprar ahora</button>
+          <Link to={`/juego/${id}`} className="bg-[#00cba9] transition hover:bg-[#00b395] text-white font-black py-2 px-4 rounded-full text-xs uppercase">Comprar ahora</Link>
         </div>
       </div>
     </div>
