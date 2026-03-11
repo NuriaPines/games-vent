@@ -11,11 +11,11 @@ interface GameDetailProps {
 export default function GameDetail({ titulo, precio, imagen, descripcion, }: GameDetailProps) {
   return (
     <div className="flex gap-10 flex-col md:flex-row">
-      <div className="justify-center flex">
+      <div className="w-full md:w-80 lg:w-96 flex-shrink-0 flex justify-center">
         <img
           src={`http://127.0.0.1:8000/${imagen}`}
           alt={titulo}
-          className="shadow-lg w-full max-w-md rounded-lg"
+          className="shadow-lg rounded-lg w-full aspect-[2.8/4] object-cover"
         />
       </div>
       <div className="flex flex-col gap-6">
