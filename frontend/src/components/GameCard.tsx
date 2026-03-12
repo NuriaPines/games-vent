@@ -13,7 +13,7 @@ export default function GameCard({ id, titulo, precio, imagen }: GameCardProps) 
     <div className="bg-[#0f0524] rounded-lg overflow-hidden flex flex-col shadow-2xl transition-transform hover:scale-105">
       <Link to={`/juego/${id}`}>
         <img 
-          src={`http://127.0.0.1:8000/${imagen}`} 
+          src={imagen} 
           className="w-full aspect-[3/4] object-cover" 
           alt={titulo}
         />

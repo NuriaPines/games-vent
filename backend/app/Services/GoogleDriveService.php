@@ -53,4 +53,18 @@ class GoogleDriveService
             'url' => "https://drive.google.com/uc?id={$file->id}"
         ];
     }
+
+    public function listFilesInFolder(string $folderId){
+        $optParams = [
+            // Buscamos archivos dentro de la carpeta que no estén en la papelera
+            'q' => "'{$folderId}' in parents and trashed = false", 
+            'fields' => 'files(id, name)', // Solo necesitamos el ID y el nombre
+            'pageSize' => 1000, 
+            'supportsAllDrives' => true,
+            'includeItemsFromAllDrives' => true,
+        ];
+
+        $results = $this->drive->files->listFiles($optParams);
+        return $results->getFiles();
+    }
 }
