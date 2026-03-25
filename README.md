@@ -119,14 +119,6 @@ npm run dev
 
 ---
 
-## 👩‍💻 Autora
-
-**Nuria Pines**
-
-* GitHub: https://github.com/NuriaPines
-
----
-
 ## 📄 Licencia
 
 Este proyecto se distribuye bajo licencia MIT.
